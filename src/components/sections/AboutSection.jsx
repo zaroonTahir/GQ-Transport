@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Shield, Users, TrendingUp, CheckCircle, MapPin, Clock, Headphones } from 'lucide-react';
+import gq from "../../assets/gq1.png"
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,7 +98,7 @@ const AboutSection = () => {
               {/* Main image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop" 
+                  src={gq}
                   alt="Office Interior"
                   className="w-full transform group-hover:scale-105 transition-transform duration-700"
                 />
