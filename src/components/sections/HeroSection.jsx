@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 import { Truck, Shield, Clock, MapPin } from 'lucide-react'
-import gq from "../../assets/hero-video.mp4"
+import gq from "../../assets/hero-video3.mp4"
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
