@@ -18,7 +18,7 @@ const HeroSection = () => {
   };
 
   const features = [
-    { icon: Truck, text: '500+ Trucks' },
+    { icon: Truck, text: '10+ Trucks' },
     { icon: Shield, text: '100% Insured' },
     { icon: Clock, text: '24/7 Support' },
     { icon: MapPin, text: 'All Pakistan' }
@@ -104,7 +104,7 @@ const HeroSection = () => {
 
     {/* Stats overlay */}
     <div className="absolute -bottom-4 -left-4 bg-gray-800 p-4 rounded-xl shadow-xl border border-white/10 animate-bounce-slow">
-      <div className="text-3xl font-bold">15+</div>
+      <div className="text-3xl font-bold">10+</div>
       <div className="text-sm text-gray-300">Years Experience</div>
     </div>
 
