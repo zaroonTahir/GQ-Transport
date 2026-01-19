@@ -28,16 +28,7 @@ const GallerySection = () => {
       title: 'Container Transport',
       category: 'Freight'
     },
-    {
-      url: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=600&fit=crop',
-      title: 'Long Distance',
-      category: 'Long Haul'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1566933293069-b55c7f326dd4?w=800&h=600&fit=crop',
-      title: 'Cargo Services',
-      category: 'Freight'
-    },
+ 
   ];
 
   useEffect(() => {

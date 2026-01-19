@@ -135,50 +135,6 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Capabilities Bar */}
-        <div className={`bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-10 transform transition-all duration-1000 delay-300 ${isVisible ? 'scale-100 opacity-100' : 'scale-98 opacity-0'}`}>
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-white mb-3">
-              Additional Capabilities
-            </h3>
-            <p className="text-gray-300">
-              Comprehensive support services to enhance your logistics experience
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {capabilities.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-              >
-                <div className="flex-shrink-0 w-14 h-14 bg-white/10 rounded-lg flex items-center justify-center">
-                  <item.icon className="w-7 h-7 text-white" strokeWidth={2} />
-                </div>
-                <div>
-                  <div className="text-white font-semibold text-lg mb-1">{item.label}</div>
-                  <div className="text-gray-400 text-sm">{item.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className={`text-center mt-20 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="inline-block bg-gray-50 rounded-2xl p-10 border border-gray-200">
-            <p className="text-gray-900 text-lg font-semibold mb-2">
-              Need a customized logistics solution?
-            </p>
-            <p className="text-gray-600 mb-6">
-              Our team is ready to design a transport plan that fits your unique requirements
-            </p>
-            <button className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105">
-              <span>Request Custom Quote</span>
-              <ArrowRight className="w-5 h-5" strokeWidth={2} />
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );

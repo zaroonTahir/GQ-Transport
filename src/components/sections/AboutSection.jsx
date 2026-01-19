@@ -7,13 +7,6 @@ const AboutSection = () => {
   const [counters, setCounters] = useState({ years: 0, clients: 0, trucks: 0, cities: 0 });
   const sectionRef = useRef(null);
 
-  const highlights = [
-    { icon: MapPin, text: 'Nationwide Coverage', color: 'text-blue-600' },
-    { icon: Headphones, text: '24/7 Customer Support', color: 'text-green-600' },
-    { icon: Shield, text: 'GPS Tracking on All Vehicles', color: 'text-purple-600' },
-    { icon: Users, text: 'Professional & Trained Drivers', color: 'text-red-600' },
-  ];
-
   const stats = [
     { icon: Award, value: 15, suffix: '+', label: 'Years Experience', color: 'from-blue-500 to-blue-600' },
     { icon: Users, value: 10, suffix: 'K+', label: 'Happy Clients', color: 'from-green-500 to-green-600' },
@@ -125,22 +118,6 @@ const AboutSection = () => {
               Pakistan with comprehensive transport solutions.
             </p>
 
-            {/* Highlights */}
-            <div className="space-y-4">
-              {highlights.map((highlight, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-100 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
-                  style={{ transitionDelay: `${600 + index * 100}ms` }}
-                >
-                  <div className={`w-12 h-12 bg-gradient-to-br ${highlight.color === 'text-blue-600' ? 'from-blue-100 to-blue-200' : highlight.color === 'text-green-600' ? 'from-green-100 to-green-200' : highlight.color === 'text-purple-600' ? 'from-purple-100 to-purple-200' : 'from-red-100 to-red-200'} rounded-lg flex items-center justify-center`}>
-                    <highlight.icon className={`w-6 h-6 ${highlight.color}`} />
-                  </div>
-                  <span className="text-gray-800 font-medium">{highlight.text}</span>
-                  <CheckCircle className="w-5 h-5 text-green-500 ml-auto" />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 

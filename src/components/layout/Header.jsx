@@ -18,33 +18,34 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
+    <header className="bg-gray-900 shadow-lg fixed w-full top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-       {/* Logo */}
-<div className="flex items-center space-x-3">
-  <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-sm">
-    <img 
-      src={gqlogo} 
-      alt="GQ Transport Logo" 
-      className="w-full h-full object-contain"
-    />
-  </div>
-  <div>
-    <h1 className="text-2xl font-bold text-gray-900">GQ Transport</h1>
-    <p className="text-xs text-gray-600">Driving Trust, Delivering Excellence</p>
-  </div>
-</div>
+          
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gray-800 shadow-sm">
+              <img 
+                src={gqlogo} 
+                alt="GQ Transport Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-white">GQ Transport</h1>
+              <p className="text-xs text-gray-400">Driving Trust, Delivering Excellence</p>
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <Navigation 
             scrollToSection={scrollToSection} 
-            className="hidden md:flex space-x-8"
+            className="hidden md:flex space-x-8 text-gray-200"
           />
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden"
+            className="md:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -55,7 +56,7 @@ const Header = () => {
         {mobileMenuOpen && (
           <Navigation 
             scrollToSection={scrollToSection} 
-            className="md:hidden pb-4 space-y-2"
+            className="md:hidden pb-4 space-y-2 text-gray-200"
             mobile={true}
           />
         )}
