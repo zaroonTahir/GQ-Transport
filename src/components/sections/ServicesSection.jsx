@@ -11,24 +11,21 @@ const ServicesSection = () => {
       icon: Truck,
       title: 'Freight Transport',
       description: 'Comprehensive full truckload and LTL shipping services with nationwide reach and reliable scheduling.',
-      bgColor: 'bg-blue-600',
-      hoverColor: 'group-hover:bg-blue-700',
+      gradient: 'from-blue-500 to-purple-500',
       features: ['Pan-Pakistan Coverage', 'Real-time GPS Tracking', 'Flexible Scheduling']
     },
     {
       icon: Shield,
       title: 'Secure Cargo',
       description: 'Premium security protocols for valuable cargo with comprehensive insurance coverage and monitoring.',
-      bgColor: 'bg-indigo-600',
-      hoverColor: 'group-hover:bg-indigo-700',
+      gradient: 'from-purple-500 to-blue-500',
       features: ['Full Insurance Coverage', '24/7 Security Monitoring', 'Certified Handlers']
     },
     {
       icon: Clock,
       title: 'Express Delivery',
       description: 'Time-critical logistics solutions with guaranteed delivery windows for urgent shipments.',
-      bgColor: 'bg-purple-600',
-      hoverColor: 'group-hover:bg-purple-700',
+      gradient: 'from-blue-500 to-purple-500',
       features: ['Same-Day Service Available', 'Priority Processing', 'On-Time Guarantee']
     },
   ];
@@ -44,16 +41,26 @@ const ServicesSection = () => {
   }, []);
 
   return (
-   <section id="services" className="pt-24 pb-12 bg-gray-900 relative" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <section 
+      id="services" 
+      className="pt-24 pb-12 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden" 
+      ref={sectionRef}
+    >
+      {/* Animated Background Elements - matching footer/hero */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
 
         {/* Header */}
         <div className={`max-w-2xl mx-auto text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full mb-6 border border-white/10">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-semibold text-gray-300 uppercase tracking-wide">Our Services</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Professional Transport Solutions
           </h2>
           <p className="text-xl text-gray-400 leading-relaxed">
@@ -73,26 +80,29 @@ const ServicesSection = () => {
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="relative bg-gray-800 border-2 border-gray-700 rounded-2xl p-8 h-full hover:border-gray-600 hover:shadow-2xl transition-all duration-500">
+              <div className="relative bg-gray-800/50 backdrop-blur-sm border-2 border-white/10 rounded-2xl p-8 h-full hover:border-white/20 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
 
                 {/* Icon */}
-                <div className="mb-8">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 ${service.bgColor} ${service.hoverColor} rounded-xl transition-all duration-500 group-hover:scale-110`}>
+                <div className="mb-8 relative z-10">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-xl transition-all duration-500 group-hover:scale-110 shadow-lg`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent relative z-10">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-400 leading-relaxed mb-8">
+                <p className="text-gray-400 leading-relaxed mb-8 relative z-10">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 relative z-10">
                   {service.features.map((feature, idx) => (
                     <div
                       key={idx}
@@ -100,22 +110,24 @@ const ServicesSection = () => {
                         activeCard === index ? 'translate-x-1' : 'translate-x-0'
                       }`}
                     >
-                      <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                        index % 2 === 0 ? 'text-blue-400' : 'text-purple-400'
+                      }`} />
                       <span className="text-sm text-gray-300 font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Learn More */}
-                <div className="pt-6 border-t border-gray-700">
-                  <button className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:gap-4 transition-all duration-300">
+                <div className="pt-6 border-t border-white/10 relative z-10">
+                  <button className={`inline-flex items-center gap-2 font-semibold hover:gap-4 transition-all duration-300 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                     <span>Learn More</span>
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-5 h-5 text-blue-400" />
                   </button>
                 </div>
 
                 {/* Hover Line */}
-                <div className={`absolute bottom-0 left-0 right-0 h-1 ${service.bgColor} transition-transform duration-500 ${
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transition-transform duration-500 ${
                   activeCard === index ? 'scale-x-100' : 'scale-x-0'
                 } rounded-b-2xl`}></div>
 
