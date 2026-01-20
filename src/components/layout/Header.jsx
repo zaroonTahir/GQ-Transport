@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Truck, Menu, X } from 'lucide-react';
 import Navigation from './Navigation';
-import gqlogo from "../../assets/gq logo3.png"
+import gqlogo from "../../assets/logo.jpeg"
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

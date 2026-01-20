@@ -87,7 +87,7 @@ const ContactSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
               
               {/* Floating Stats */}
-              <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-4">
+              <div className="absolute top-6 left-6 right-6 grid grid-cols-3 gap-4">
                 <div className="bg-gray-900/90 backdrop-blur-md p-4 rounded-xl border border-white/20 transform transition-all hover:scale-105">
                   <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">10+</div>
                   <div className="text-sm text-gray-300 mt-1">Modern Trucks</div>

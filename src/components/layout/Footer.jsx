@@ -1,6 +1,6 @@
 import React from 'react';
 import { Truck, MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
-import gqlogo2 from "../../assets/gq logo3.png"
+import gqlogo2 from "../../assets/logo.jpeg"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
