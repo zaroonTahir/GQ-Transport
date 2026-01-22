@@ -38,11 +38,12 @@ const Header = () => {
               {/* Animated Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 shadow-lg border border-white/10 group-hover:border-white/20 transition-all duration-300 group-hover:scale-110">
+              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg border border-white/10 group-hover:border-white/20 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src={gqlogo} 
                   alt="GQ Transport Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: 'center' }}
                 />
               </div>
             </div>

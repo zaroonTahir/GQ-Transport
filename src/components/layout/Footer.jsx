@@ -34,13 +34,14 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 shadow-lg border border-white/10 group-hover:border-white/20 transition-all duration-300 group-hover:scale-110">
-                             <img 
-                               src={gqlogo2} 
-                               alt="GQ Transport Logo" 
-                               className="w-full h-full object-contain"
-                             />
-                           </div>
+              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg border border-white/10 group-hover:border-white/20 transition-all duration-300 group-hover:scale-110">
+                <img 
+                  src={gqlogo2} 
+                  alt="GQ Transport Logo" 
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: 'center' }}
+                />
+              </div>
               <div>
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   GQ Transport
