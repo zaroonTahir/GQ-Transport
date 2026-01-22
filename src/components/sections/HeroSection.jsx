@@ -80,7 +80,7 @@ const HeroSection = () => {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}>
               <Button onClick={() => scrollToSection('contact')} variant="primary">
-                Get Quote →
+                Contact us →
               </Button>
               <Button onClick={() => scrollToSection('services')} variant="secondary">
                 Our Services
