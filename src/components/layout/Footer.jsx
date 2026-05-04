@@ -1,75 +1,85 @@
 import React from 'react';
-import { Truck, MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
-import gqlogo2 from "../../assets/logo.jpeg"
+import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import gqlogo from '../../assets/logo.jpeg';
+
+const quickLinks = [
+  { name: 'Home', id: 'home' },
+  { name: 'Features', id: 'features' },
+  { name: 'About', id: 'about' },
+  { name: 'Services', id: 'services' },
+  { name: 'Gallery', id: 'gallery' },
+  { name: 'Contact', id: 'contact' },
+];
+
+const socials = [
+  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+];
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' },
-    { name: 'Contact', id: 'contact' }
-  ];
+  const year = new Date().getFullYear();
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <footer className="relative bg-[#030712] text-white overflow-hidden">
+      {/* Top gradient line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-lg border border-white/10 group-hover:border-white/20 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src={gqlogo2} 
-                  alt="GQ Transport Logo" 
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: 'center' }}
-                />
+      <div className="container mx-auto px-4 sm:px-6 py-14 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <motion.div
+              className="flex items-center gap-3 mb-5 cursor-pointer group"
+              onClick={() => scrollToSection('home')}
+              whileHover={{ x: 2 }}
+            >
+              <div className="w-11 h-11 rounded-xl overflow-hidden border border-white/20 shadow-lg">
+                <img src={gqlogo} alt="GQ Transport" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  GQ Transport
-                </h3>
+                <div className="text-lg font-black text-white">GQ Transport</div>
+                <div className="text-xs text-gray-500">Rahim Yar Khan, Pakistan</div>
               </div>
-            </div>
-            <p className="text-gray-400 mb-4 leading-relaxed">
-              Driving Trust, Delivering Excellence across Pakistan. Your premier transport partner with 10+ years of experience.
+            </motion.div>
+
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
+              Driving Trust, Delivering Excellence across Pakistan. Your premier transport partner
+              with 10+ years of experience and a modern fleet.
             </p>
-            <div className="flex space-x-3">
-              <a href="#" className="group relative p-3 bg-gray-800/50 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white relative z-10 transition-colors duration-300" />
-              </a>
-              <a href="#" className="group relative p-3 bg-gray-800/50 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white relative z-10 transition-colors duration-300" />
-              </a>
-              <a href="#" className="group relative p-3 bg-gray-800/50 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white relative z-10 transition-colors duration-300" />
-              </a>
+
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((s, i) => (
+                <motion.a
+                  key={i}
+                  href={s.href}
+                  aria-label={s.label}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 flex items-center justify-center transition-colors duration-200 group"
+                >
+                  <s.icon className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick links */}
           <div>
-            <h4 className="text-lg font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -77,9 +87,9 @@ const Footer = () => {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="group text-gray-400 hover:text-white transition-colors duration-300 flex items-center"
+                    className="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
                   >
-                    <span className="w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                    <span className="w-0 h-px bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-3 transition-all duration-300" />
                     {link.name}
                   </button>
                 </li>
@@ -87,44 +97,56 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h4 className="text-lg font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">
               Contact Info
             </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-gray-400">
-                <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Shop no.01 Choudhary Plaza, Rahim Yar Khan, Punjab</span>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-400">Shop no.01 Choudhary Plaza, Rahim Yar Khan, Punjab</span>
               </li>
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Phone className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span className="text-sm">+92 339 2227727</span>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span className="text-sm text-gray-400">+92 339 2227727</span>
               </li>
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Mail className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                <span className="text-sm">CEO: Choudhary Adan</span>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                <span className="text-sm text-gray-400">CEO: Choudhary Adan</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider with Gradient */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6"></div>
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6" />
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>
-            &copy; {currentYear} <span className="text-white font-semibold">GQ Transport Company</span>. All rights reserved.
+        {/* Bottom */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-gray-500">
+            &copy; {year}{' '}
+            <span className="text-gray-300 font-semibold">GQ Transport Company</span>. All rights reserved.
           </p>
-          <p className="mt-2 md:mt-0">
+          <p className="text-xs text-gray-500">
             Crafted with <span className="text-red-500">❤</span> for Excellence
           </p>
         </div>
       </div>
 
-      {/* Bottom Gradient Line */}
-      <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"></div>
+      {/* Bottom gradient bar */}
+      <div className="h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600" />
+
+      {/* Back to top */}
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        whileHover={{ scale: 1.1, y: -2 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 right-6 w-11 h-11 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 z-40 border border-white/10"
+        aria-label="Back to top"
+      >
+        <ArrowUp className="w-4 h-4 text-white" />
+      </motion.button>
     </footer>
   );
 };
