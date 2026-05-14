@@ -140,9 +140,15 @@ function MagneticButton({ children, onClick, className }) {
 /* ── Main Hero ── */
 const HeroSection = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  // Track scroll relative to the section itself leaving the viewport
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
+  // Parallax: content drifts up slightly as section scrolls out
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  // Fade out only in the last 30% of the section leaving view
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
 
   const typeText = useTypewriter(
     ['Rahim Yar Khan', 'All Pakistan', 'Your Trusted Partner'],
@@ -175,10 +181,10 @@ const HeroSection = () => {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen bg-[#030712] text-white overflow-hidden flex items-center"
+      className="relative min-h-screen bg-[#030712] text-white flex items-center"
     >
-      {/* 3D Canvas Background */}
-      <div className="absolute inset-0 z-0">
+      {/* 3D Canvas Background — overflow clipped only here */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
           <Suspense fallback={null}>
             <Scene3D />
@@ -202,8 +208,8 @@ const HeroSection = () => {
 
       {/* Main content */}
       <motion.div
-        className="container mx-auto px-4 sm:px-6 pt-24 pb-16 relative z-10"
-        style={{ y, opacity }}
+        className="container mx-auto px-4 sm:px-6 pt-24 pb-16 relative z-10 w-full"
+        style={{ y, opacity, willChange: 'transform, opacity' }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
