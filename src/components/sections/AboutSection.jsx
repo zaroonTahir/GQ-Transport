@@ -36,7 +36,7 @@ function Counter({ target, suffix, duration = 2000 }) {
 }
 
 const stats = [
-  { icon: Award, value: 10, suffix: '+', label: 'Years Experience', gradient: 'from-blue-500 to-cyan-500' },
+  { icon: Award, value: 7, suffix: '+', label: 'Years Experience', gradient: 'from-blue-500 to-cyan-500' },
   { icon: Users, value: 10, suffix: 'K+', label: 'Happy Clients', gradient: 'from-purple-500 to-pink-500' },
   { icon: TrendingUp, value: 10, suffix: '+', label: 'Trucks Fleet', gradient: 'from-cyan-500 to-blue-500' },
   { icon: MapPin, value: 50, suffix: '+', label: 'Cities Covered', gradient: 'from-pink-500 to-purple-500' },

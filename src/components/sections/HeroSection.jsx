@@ -240,7 +240,7 @@ const HeroSection = () => {
             {/* Sub */}
             <motion.p variants={itemVariants} className="text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
               Delivering excellence across Pakistan with reliability, safety, and speed.
-              Your cargo, our commitment — since 2014.
+              Your cargo, our commitment — since 2019.
             </motion.p>
 
             {/* Feature pills */}
@@ -321,7 +321,7 @@ const HeroSection = () => {
               transition={{ delay: 0.9, type: 'spring' }}
               className="absolute -bottom-5 -left-6 bg-gray-900/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl"
             >
-              <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">10+</div>
+              <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">7+</div>
               <div className="text-xs text-gray-400 mt-0.5">Years Experience</div>
             </motion.div>
 
@@ -339,16 +339,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        onClick={() => scrollToSection('features')}
-      >
-        <span className="text-xs text-gray-500 uppercase tracking-widest">Scroll</span>
-        <ChevronDown className="w-5 h-5 text-gray-500" />
-      </motion.div>
+     
     </section>
   );
 };
